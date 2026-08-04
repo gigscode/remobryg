@@ -86,9 +86,8 @@ function Index() {
       <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center gap-2 transition-opacity duration-200 hover:opacity-80">
-            <img src="/remocon.png" alt="RemoBryg logo" className="h-8 w-8 object-contain" />
-            <span className="font-display text-lg font-bold tracking-tight text-foreground">
-              Remo<span className="text-blue-600">Bryg</span>
+            <span className="font-display text-xl font-extrabold tracking-tight text-foreground">
+              Remo<span className="text-teal-600">Bryg</span>
             </span>
           </Link>
           {/* Desktop nav */}
@@ -542,9 +541,8 @@ function Index() {
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <div className="flex items-center gap-2">
-              <img src="/remocon.png" alt="RemoBryg logo" className="h-8 w-8 object-contain" />
-              <span className="font-display text-lg font-bold tracking-tight text-foreground">
-                Remo<span className="text-blue-600">Bryg</span>
+              <span className="font-display text-xl font-extrabold tracking-tight text-foreground">
+                Remo<span className="text-teal-600">Bryg</span>
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
