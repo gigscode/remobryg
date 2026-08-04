@@ -378,11 +378,11 @@ function Index() {
           </div>
           <div className="space-y-3">
             {[
+              { icon: <TrendingUp className="h-5 w-5 text-primary" />, title: "AI Tasking & Data Annotation", type: "Training", pay: "$500–$900/week", location: "Remote · Nigeria-friendly", tags: ["Outlier", "Mercor", "OneForma"], tagColor: "bg-primary/10 text-primary" },
               { icon: <Code2 className="h-5 w-5 text-primary" />, title: "Fullstack Developer", type: "Hiring", pay: "$60k–$120k/yr", location: "Remote · Worldwide", tags: ["React", "Node.js", "TypeScript"], tagColor: "bg-primary/10 text-primary" },
               { icon: <Megaphone className="h-5 w-5 text-accent" />, title: "Social Media Manager", type: "Hiring", pay: "$800–$2k/mo", location: "Remote · Flexible hours", tags: ["Instagram", "TikTok", "Content"], tagColor: "bg-accent/10 text-accent-foreground" },
               { icon: <Video className="h-5 w-5 text-destructive" />, title: "UGC Creator", type: "Hiring", pay: "$300–$800/project", location: "Remote · No studio needed", tags: ["Video", "Brand Content", "Mobile"], tagColor: "bg-destructive/10 text-destructive" },
               { icon: <Youtube className="h-5 w-5 text-[#FF0000]" />, title: "YouTube Automation Training", type: "Training", pay: "Free to members", location: "Online · Self-paced", tags: ["Faceless Channel", "Monetisation", "Scaling"], tagColor: "bg-red-50 text-red-600" },
-              { icon: <TrendingUp className="h-5 w-5 text-primary" />, title: "AI Tasking & Data Annotation", type: "Training", pay: "$500–$900/week", location: "Remote · Nigeria-friendly", tags: ["Outlier", "Mercor", "OneForma"], tagColor: "bg-primary/10 text-primary" },
               { icon: <Briefcase className="h-5 w-5 text-muted-foreground" />, title: "More Roles Coming…", type: "Coming Soon", pay: "—", location: "Join to stay updated", tags: ["Community Access"], tagColor: "bg-muted text-muted-foreground" },
             ].map(({ icon, title, type, pay, location, tags, tagColor }) => (
               <div key={title}
@@ -411,9 +411,9 @@ function Index() {
                     </div>
                   </div>
                 </div>
-                <Button asChild size="default" variant="outline"
-                  className="w-1/2 shrink-0 px-10 py-4 text-base sm:w-auto transition-all duration-200 group-hover:border-accent group-hover:text-accent">
-                  <a href="#join">Apply / Learn</a>
+                <Button asChild size="default"
+                  className="w-1/2 shrink-0 bg-accent px-10 py-4 text-base font-semibold text-accent-foreground transition-all duration-200 hover:scale-[1.02] hover:bg-accent/90 hover:shadow-md sm:w-auto">
+                  <a href="https://t.me/remobryg" target="_blank" rel="noopener noreferrer">Apply</a>
                 </Button>
               </div>
             ))}
