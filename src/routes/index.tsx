@@ -23,7 +23,7 @@ import {
   DollarSign,
   X,
 } from "lucide-react";
-import { FaWhatsapp, FaTelegram, FaXTwitter } from "react-icons/fa6";
+import { FaWhatsapp, FaTelegram } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -379,7 +379,7 @@ function Index() {
           </div>
           <div className="space-y-3">
             {[
-              { icon: <TrendingUp className="h-5 w-5 text-primary" />, title: "AI Tasking & Data Annotation", type: "Training", pay: "$500–$900/week", location: "Remote · Nigeria-friendly", tags: ["Outlier", "Mercor", "OneForma"], tagColor: "bg-primary/10 text-primary" },
+              { icon: <TrendingUp className="h-5 w-5 text-primary" />, title: "AI Tasking & Data Annotation", type: "Hiring", pay: "$500–$900/week", location: "Remote · Nigeria-friendly", tags: ["Outlier", "Mercor", "OneForma"], tagColor: "bg-primary/10 text-primary" },
               { icon: <Code2 className="h-5 w-5 text-primary" />, title: "Fullstack Developer", type: "Hiring", pay: "$60k–$120k/yr", location: "Remote · Worldwide", tags: ["React", "Node.js", "TypeScript"], tagColor: "bg-primary/10 text-primary" },
               { icon: <Megaphone className="h-5 w-5 text-accent" />, title: "Social Media Manager", type: "Hiring", pay: "$800–$2k/mo", location: "Remote · Flexible hours", tags: ["Instagram", "TikTok", "Content"], tagColor: "bg-accent/10 text-accent-foreground" },
               { icon: <Video className="h-5 w-5 text-destructive" />, title: "UGC Creator", type: "Hiring", pay: "$300–$800/project", location: "Remote · No studio needed", tags: ["Video", "Brand Content", "Mobile"], tagColor: "bg-destructive/10 text-destructive" },
@@ -505,7 +505,6 @@ function Index() {
               <div className="mt-8 space-y-3">
                 <SocialLink icon={<FaWhatsapp className="h-5 w-5 text-[#25D366]" />} label="WhatsApp" href="https://chat.whatsapp.com/LE2LDORzK23DdPGLA4zLwV?s=cl&p=a&ilr=4" description="Join WhatsApp community" />
                 <SocialLink icon={<FaTelegram className="h-5 w-5 text-[#26A5E4]" />} label="Telegram" href="https://t.me/remobryg" description="Join the Telegram channel" />
-                <SocialLink icon={<FaXTwitter className="h-5 w-5 text-white" />} label="Twitter / X" href="https://x.com/LordSid07" description="Follow for updates" />
               </div>
             </div>
             <div className="rounded-2xl bg-primary-foreground/10 p-6 backdrop-blur-sm sm:p-8 animate-fade-in-up-delay">
