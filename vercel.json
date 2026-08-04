@@ -1,5 +1,6 @@
 {
   "buildCommand": "npm run build",
+  "outputDirectory": "dist/client",
   "installCommand": "npm install",
   "framework": null,
   "functions": {
@@ -10,11 +11,11 @@
   "routes": [
     {
       "src": "/assets/(.*)",
-      "dest": "/dist/client/assets/$1"
+      "dest": "/assets/$1"
     },
     {
       "src": "/(.*\\.(ico|png|jpg|jpeg|svg|webp|gif|txt|xml|json))",
-      "dest": "/dist/client/$1"
+      "dest": "/$1"
     },
     {
       "src": "/(.*)",
