@@ -7,9 +7,6 @@ import {
   ShieldCheck,
   TrendingUp,
   Users,
-  MessageCircle,
-  Send,
-  Twitter,
   Mail,
   CheckCircle2,
   AlertTriangle,
@@ -17,6 +14,7 @@ import {
   FileText,
   ArrowRight,
 } from "lucide-react";
+import { FaWhatsapp, FaTelegram, FaXTwitter } from "react-icons/fa6";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -397,21 +395,21 @@ function Index() {
               </p>
               <div className="mt-8 space-y-4">
                 <SocialLink
-                  icon={<MessageCircle className="h-5 w-5" aria-hidden="true" />}
+                  icon={<FaWhatsapp className="h-5 w-5 text-[#25D366]" aria-hidden="true" />}
                   label="WhatsApp"
-                  href="#"
-                  description="Request your invite link"
+                  href="https://chat.whatsapp.com/LE2LDORzK23DdPGLA4zLwV?s=cl&p=a&ilr=4"
+                  description="Join WhatsApp community"
                 />
                 <SocialLink
-                  icon={<Send className="h-5 w-5" aria-hidden="true" />}
+                  icon={<FaTelegram className="h-5 w-5 text-[#26A5E4]" aria-hidden="true" />}
                   label="Telegram"
-                  href="#"
+                  href="https://t.me/remobryg"
                   description="Join the Telegram channel"
                 />
                 <SocialLink
-                  icon={<Twitter className="h-5 w-5" aria-hidden="true" />}
+                  icon={<FaXTwitter className="h-5 w-5 text-white" aria-hidden="true" />}
                   label="Twitter / X"
-                  href="#"
+                  href="https://x.com/LordSid07"
                   description="Follow for updates"
                 />
               </div>
@@ -548,6 +546,8 @@ function SocialLink({ icon, label, href, description }: { icon: React.ReactNode;
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="flex items-center gap-4 rounded-xl border border-primary-foreground/20 bg-primary-foreground/10 p-4 transition-all duration-200 hover:scale-[1.02] hover:bg-primary-foreground/20 hover:shadow-md"
     >
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20">
