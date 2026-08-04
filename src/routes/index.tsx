@@ -124,12 +124,13 @@ function Index() {
         </div>
         {/* Mobile drawer */}
         {menuOpen && (
-          <div className="border-t border-border/50 bg-background/95 px-4 pb-6 pt-4 backdrop-blur-md md:hidden">
+          <div className="border-t border-border/50 bg-background/98 px-6 pb-8 pt-6 backdrop-blur-md md:hidden">
             <nav className="flex flex-col gap-1">
-              {navLinks.map(({ id, label }) => (
+              {navLinks.map(({ id, label }, i) => (
                 <a key={id} href={`#${id}`}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-4 py-3 text-sm font-medium text-muted-foreground transition-colors duration-150 hover:bg-surface-raised hover:text-foreground">
+                  style={{ animationDelay: `${i * 60}ms` }}
+                  className="animate-fade-in-up border-b border-border/30 py-4 font-display text-2xl font-extrabold tracking-tight text-foreground transition-colors duration-150 hover:text-teal-600 last:border-0">
                   {label}
                 </a>
               ))}
