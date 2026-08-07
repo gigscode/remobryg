@@ -564,20 +564,61 @@ const Q1 = QUESTIONS[1] as Question;
 const Q2 = QUESTIONS[2] as Question;
 const Q3 = QUESTIONS[3] as Question;
 
-const EARNING_MAP: Record<"20-40" | "40-60" | "60+", string> = {
-  "20-40": "$200–$400/week",
-  "40-60": "$400–$700/week",
-  "60+": "$500–$900/week",
+const EARNING_MAP: Record<"20-40" | "40-60" | "60+", { tasker: string; partner: string; hours: string; calc: string; partnerCalc: string }> = {
+  "20-40": {
+    hours: "20–40 hrs",
+    tasker: "$40–$80/week",
+    calc: "20–40 hrs × $2/hr = $40–$80",
+    partner: "$4–$8/week",
+    partnerCalc: "10% of $40–$80 tasker earnings = $4–$8",
+  },
+  "40-60": {
+    hours: "40–60 hrs",
+    tasker: "$80–$120/week",
+    calc: "40–60 hrs × $2/hr = $80–$120",
+    partner: "$8–$12/week",
+    partnerCalc: "10% of $80–$120 tasker earnings = $8–$12",
+  },
+  "60+": {
+    hours: "60+ hrs",
+    tasker: "$120+/week",
+    calc: "60+ hrs × $2/hr = $120+",
+    partner: "$12+/week",
+    partnerCalc: "10% of $120+ tasker earnings = $12+",
+  },
 };
 
 function getResult(answers: Record<string, Answer>): Result {
   const hasDiaspora = answers["diaspora"] === "yes";
   const wantsToTask = answers["task-interest"] === "yes-task";
-  const hasDevice = answers["device"] === "yes";
+  const deviceAnswer = answers["device"];
+  const hasDevice = deviceAnswer === "yes";
   const hours = answers["hours"] as "20-40" | "40-60" | "60+" | undefined;
-  const estimatedEarning = hours ? EARNING_MAP[hours] : "$500–$900/week";
+  const map = hours ? EARNING_MAP[hours] : EARNING_MAP["20-40"];
 
-  if (!hasDevice) {
+  // Only show not-ready if device question was explicitly answered "no"
+  if (deviceAnswer === "no") {
+    // If they have diaspora, they still earn 10% passively
+    if (hasDiaspora) {
+      return {
+        key: "account-partner",
+        title: "Account Partner",
+        badge: "Passive Income",
+        badgeColor: "bg-primary/15 text-primary",
+        earning: map.partner,
+        earningLabel: map.partnerCalc,
+        desc: "You don't have a device yet, but your diaspora contact still earns you 10% weekly. RemoBryg assigns a verified tasker to your relative's account — you earn passively while you get set up.",
+        bullets: [
+          "Tasker earns $2/hr on your relative's account",
+          `${map.partnerCalc}`,
+          "No laptop needed — your cut is passive",
+          "When you get a device, you can switch to full tasking and earn more",
+        ],
+        ctaLabel: "Join the Community on WhatsApp",
+        ctaHref: WHATSAPP,
+        accentClass: "border-primary/40 bg-primary/5",
+      };
+    }
     return {
       key: "not-ready",
       title: "You're Almost There",
@@ -585,34 +626,33 @@ function getResult(answers: Record<string, Answer>): Result {
       badgeColor: "bg-warning/15 text-warning",
       earning: "—",
       earningLabel: "not yet, but soon",
-      desc: "You're one step away. A basic laptop and stable internet are the only barriers between you and your first dollar income. Many members started from this exact point.",
+      desc: "A basic laptop and stable internet are the only things standing between you and your first dollar payment. Many members started from this exact point.",
       bullets: [
-        "Join the community now — members often share leads on affordable devices",
+        "Join the community — members often share leads on affordable devices",
         "Use the time to learn the platforms and prepare your setup",
         "When you're ready, you can start earning within days",
       ],
-      ctaLabel: "Join the Community",
+      ctaLabel: "Join the Community on WhatsApp",
       ctaHref: WHATSAPP,
       accentClass: "border-warning/40 bg-warning/5",
     };
   }
-
   if (hasDiaspora && wantsToTask) {
     return {
       key: "full-earner",
       title: "Full Earner",
       badge: "Best Path",
       badgeColor: "bg-accent/15 text-accent-foreground",
-      earning: estimatedEarning,
-      earningLabel: "estimated weekly earnings",
-      desc: "You have everything — a diaspora account and the time to task. This is the highest-earning path. Your relative's account handles compliant payments while you work on AI tasks weekly.",
+      earning: map.tasker,
+      earningLabel: map.calc,
+      desc: "You have the best setup — a diaspora account for compliant payments and the availability to task yourself. Platform rate is $15/hr. You receive $2/hr.",
       bullets: [
-        "Use your relative's account as the compliant payment route",
-        "Work on platforms like Outlier, Mercor, and OneForma",
-        "Up to 60 hrs of tasks available weekly (avg ~60 hrs depending on platform)",
-        "We guide you through the full setup — account, platform onboarding, first payment",
+        "Your take: $2/hr",
+        `${map.calc}`,
+        "Payment processed through your relative's account compliantly",
+        "We handle account setup, onboarding, and your first payment walkthrough",
       ],
-      ctaLabel: "Start Now on WhatsApp",
+      ctaLabel: "Join the Community on WhatsApp",
       ctaHref: WHATSAPP,
       accentClass: "border-accent/40 bg-accent/5",
     };
@@ -624,16 +664,16 @@ function getResult(answers: Record<string, Answer>): Result {
       title: "Account Partner",
       badge: "Passive Income",
       badgeColor: "bg-primary/15 text-primary",
-      earning: "10–15%",
-      earningLabel: "of the account's weekly earnings",
-      desc: "You supply the account. We supply the tasker. Every week the account earns, you receive your cut — no work required on your end. The percentage varies slightly by country and platform rate.",
+      earning: map.partner,
+      earningLabel: map.partnerCalc,
+      desc: "You supply the diaspora account. RemoBryg assigns a verified tasker. The tasker earns $5/hr and you receive 10% of their total weekly earnings — passively, with full transparency.",
       bullets: [
-        "Your relative's account is used compliantly under a clear agreement",
-        "RemoBryg assigns a verified tasker to the account",
-        "You receive 10–15% of whatever the account earns weekly",
-        "Full transparency — you see exactly what was earned each week",
+        `Tasker earns $5/hr on your account`,
+        `${map.partnerCalc}`,
+        "Weekly earnings report sent — full transparency, no guesswork",
+        "Your relative's account is used under a clear, compliant agreement",
       ],
-      ctaLabel: "Start Now on WhatsApp",
+      ctaLabel: "Join the Community on WhatsApp",
       ctaHref: WHATSAPP,
       accentClass: "border-primary/40 bg-primary/5",
     };
@@ -641,19 +681,19 @@ function getResult(answers: Record<string, Answer>): Result {
 
   return {
     key: "tasker",
-    title: "Tasker",
+    title: "Direct Tasker",
     badge: "Direct Earner",
     badgeColor: "bg-primary/15 text-primary",
-    earning: estimatedEarning,
-    earningLabel: "estimated weekly earnings",
-    desc: "You work directly on AI task platforms. No diaspora contact needed — we help you set up a compliant account and get your first tasks. Earnings are hourly, and work is available most weeks.",
+    earning: map.tasker,
+    earningLabel: map.calc,
+    desc: "No diaspora contact? No problem. You work directly on AI task platforms. You earn $2/hr. We handle compliant account setup and your first payment.",
     bullets: [
+      "Your take: $2/hr",
+      `${map.calc}`,
       "Platforms: Outlier, Mercor, OneForma and more",
-      "Up to 60 hrs of tasks available weekly on average",
-      "Hourly pay — the more you work, the more you earn",
-      "We handle account setup, onboarding, and your first payment",
+      "We handle setup, onboarding, and your first payment walkthrough",
     ],
-    ctaLabel: "Start Now on WhatsApp",
+    ctaLabel: "Join the Community on WhatsApp",
     ctaHref: WHATSAPP,
     accentClass: "border-primary/40 bg-primary/5",
   };
@@ -664,30 +704,28 @@ function Assessment() {
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
   const [result, setResult] = useState<Result | null>(null);
 
-  // Which questions to show depends on answers so far
   function getActiveQuestions(): Question[] {
     const hasDiaspora = answers["diaspora"];
-    if (!hasDiaspora) return [Q0];
+    if (!hasDiaspora) return [Q0, Q1, Q3];
     if (hasDiaspora === "yes") {
       const wantsTask = answers["task-interest"];
-      if (!wantsTask) return [Q0, Q1];
+      // tasker path: diaspora → want to task → hours → device
       if (wantsTask === "yes-task") return [Q0, Q1, Q2, Q3];
+      // account-only path: diaspora → no task → device (no hours needed)
       return [Q0, Q1, Q3];
     }
-    const hasHours = answers["hours"];
-    if (!hasHours) return [Q0, Q2];
+    // no diaspora: hours → device
     return [Q0, Q2, Q3];
   }
 
   const activeQuestions = getActiveQuestions();
-  const currentQ = activeQuestions[step];
+  const currentQ = activeQuestions[step] as Question | undefined;
   const isLastStep = step === activeQuestions.length - 1;
 
   function handleAnswer(value: Answer) {
     if (!currentQ) return;
     const next = { ...answers, [currentQ.id]: value };
     setAnswers(next);
-
     if (isLastStep) {
       setResult(getResult(next));
     } else {
@@ -748,7 +786,7 @@ function Assessment() {
       <div className="mb-8">
         <div className="mb-2 flex items-center justify-between text-xs text-muted-foreground">
           <span>Question {step + 1} of {activeQuestions.length}</span>
-          <span>{Math.round(((step) / activeQuestions.length) * 100)}% done</span>
+          <span>{Math.round((step / activeQuestions.length) * 100)}% done</span>
         </div>
         <div className="h-1.5 w-full overflow-hidden rounded-full bg-border">
           <div
