@@ -155,7 +155,7 @@ function Index() {
                 <span className="italic text-primary">Every Week.</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                Start at $2/hr, work 20–60 hrs a week, get paid in dollars every Friday. We handle the compliance, payment setup, and everything Nigeria's remote work scene gets wrong.
+                AI task platforms are paying out every week — but only if you know how to access them without the usual hassles. We handle the setup, the payment routing, and the red tape so you can focus on the work.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4 sm:justify-start">
                 <Button asChild size="lg" className="w-1/2 px-6 sm:w-auto bg-primary text-primary-foreground transition-all duration-200 hover:scale-105 hover:bg-primary/90 hover:shadow-lg">
@@ -180,7 +180,7 @@ function Index() {
                 </div>
                 <div>
                   <div className="font-display text-4xl font-extrabold text-foreground">Weekly</div>
-                  <div className="mt-1 text-sm text-muted-foreground">payments, every Friday</div>
+                  <div className="mt-1 text-sm text-muted-foreground">payments, every week</div>
                 </div>
               </div>
             </div>
@@ -237,7 +237,7 @@ function Index() {
             </div>
             <h3 className="font-display mt-6 text-2xl font-bold text-foreground">The Opportunity Is Hidden in Plain Sight</h3>
             <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-              Thousands of remote AI task roles are actively hiring Nigerians right now — on platforms most people have never heard of. At $2/hr for 20–60 hours a week, members consistently take home $40–$120 every Friday. The gap isn't ability or work ethic. It's awareness. Nobody told you this was possible, and nobody showed you how to get started.
+              Thousands of remote AI task roles are actively hiring Nigerians right now — on platforms most people have never heard of. At $2/hr for 20–60 hours a week, members consistently take home $40–$120 weekly. The gap isn't ability or work ethic. It's awareness. Nobody told you this was possible, and nobody showed you how to get started.
             </p>
             <blockquote className="mt-6 border-l-4 border-accent/40 pl-4 text-sm italic text-muted-foreground">
               &ldquo;I had no idea I could be earning in dollars from my laptop every week. I just didn't know where to look.&rdquo;
@@ -257,7 +257,7 @@ function Index() {
               <Lock className="h-5 w-5 text-muted-foreground" />
             </div>
             <h3 className="font-display mt-4 text-lg font-bold text-foreground">No Clear Starting Point</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Even those who know the opportunity exists don't know which platforms to use, how to set up compliantly, or how to get their first payment.</p>
+            <p className="mt-2 text-sm text-muted-foreground">Even those who know the opportunity exists don't know which platforms to use, how to set up without the hassle, or how to get their first payment.</p>
           </div>
         </div>
       </section>
@@ -292,18 +292,27 @@ function Index() {
                 ))}
               </div>
             </div>
-            {/* Big typographic callout */}
+            {/* What members are actually doing */}
             <div className="space-y-4">
-              {[
-                { value: "$40–$120/wk", label: "real weekly earnings at 20–60 hrs", color: "text-accent" },
-                { value: "2 Tiers", label: "income engine → career accelerator", color: "text-primary" },
-                { value: "1 Mission", label: "sustainable success for Nigerians", color: "text-foreground" },
-              ].map(({ value, label, color }) => (
-                <div key={value} className="group rounded-2xl border border-border/60 bg-card px-8 py-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-                  <div className={`font-display text-5xl font-extrabold ${color}`}>{value}</div>
-                  <div className="mt-1 text-sm text-muted-foreground">{label}</div>
+              <div className="rounded-2xl border border-border/60 bg-card px-8 py-6">
+                <p className="text-sm font-semibold uppercase tracking-widest text-accent">What members are doing right now</p>
+                <div className="mt-4 space-y-4">
+                  {[
+                    { hours: "20 hrs/wk", outcome: "$40/week", note: "Starting out, first payments landing" },
+                    { hours: "40 hrs/wk", outcome: "$80/week", note: "Consistent earners, 2–3 platforms" },
+                    { hours: "60+ hrs/wk", outcome: "$120+/week", note: "Full-time, diaspora account + direct setup" },
+                  ].map(({ hours, outcome, note }) => (
+                    <div key={hours} className="flex items-center justify-between gap-4 border-t border-border/40 pt-4 first:border-0 first:pt-0">
+                      <div>
+                        <div className="text-sm font-semibold text-foreground">{hours}</div>
+                        <div className="mt-0.5 text-xs text-muted-foreground">{note}</div>
+                      </div>
+                      <div className="font-display text-2xl font-extrabold text-accent">{outcome}</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+              <p className="px-1 text-xs text-muted-foreground">Based on $2/hr take-home rate on platforms like Outlier, Mercor, and OneForma.</p>
             </div>
           </div>
         </div>
@@ -388,12 +397,9 @@ function Index() {
               <span className="text-foreground"> Earns Too —</span>{" "}
               <span className="text-primary">Every Week.</span>
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              They receive a fixed, agreed percentage of every weekly payout. No vague arrangements — just a clear, compliant payment partnership.
-            </p>
             <div className="mt-8 space-y-0 divide-y divide-border/50">
               {[
-                { icon: <DollarSign className="h-5 w-5 text-primary" />, title: "Negotiated Weekly Percentage", desc: "Your US or Canadian relative earns a fixed, agreed percentage of every weekly payout — no vague arrangements, no surprises. The rate is set upfront and paid automatically." },
+                { icon: <DollarSign className="h-5 w-5 text-primary" />, title: "Negotiated Weekly Percentage", desc: "The rate is agreed before any tasking begins — typically around 10% of weekly earnings. It's written into the agreement and transfers automatically every payout cycle." },
                 { icon: <Users className="h-5 w-5 text-accent" />, title: "Payment Agency Model", desc: "US and Canadian relatives act as compliant payment facilitators. They receive the platform payout and transfer your agreed share — tax-aware, zero risk to both sides." },
                 { icon: <ShieldCheck className="h-5 w-5 text-primary" />, title: "Transparent Agreement Templates", desc: "We provide ready-to-sign agreement templates that define the percentage split, transfer schedule, and record-keeping — so every party is protected." },
               ].map(({ icon, title, desc }) => (
@@ -422,7 +428,7 @@ function Index() {
                 Today
               </h2>
               <p className="mt-4 text-lg text-primary-foreground/80">
-                Ready to earn in dollars, get paid weekly, and stop settling for local rates? Join Nigerians already earning on the path.
+                The moment you join you get access to our platform setup guide, payment routing walkthrough, and a community of members already earning — ready to answer your first questions.
               </p>
               <div className="mt-8 space-y-3">
                 <SocialLink icon={<FaWhatsapp className="h-5 w-5 text-[#25D366]" />} label="WhatsApp" href="https://chat.whatsapp.com/LE2LDORzK23DdPGLA4zLwV?s=cl&p=a&ilr=4" description="Join WhatsApp community" />
@@ -683,7 +689,7 @@ function getResult(answers: Record<string, Answer>): Result {
       bullets: [
         "Your take: $2/hr",
         `${map.calc}`,
-        "Payment processed through your relative's account compliantly",
+        "Payment processed through your relative's account — no hassle, no risk",
         "We handle account setup, onboarding, and your first payment walkthrough",
       ],
       ctaLabel: "Join the Community on WhatsApp",
