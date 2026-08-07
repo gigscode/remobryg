@@ -11,7 +11,6 @@ import {
   Mail,
   AlertTriangle,
   Lock,
-  FileText,
   ArrowRight,
   MapPin,
   Clock,
@@ -44,9 +43,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "The RemoBryg — Earn in Dollars. Get Paid Every Week." },
-      { name: "description", content: "$500–$900 weekly. Compliant remote work for Nigerians — no transfer fee traps, no graveyard shifts." },
+      { name: "description", content: "Earn $40–$120/week in dollars. Compliant remote work for Nigerians — no transfer fee traps, no graveyard shifts." },
       { property: "og:title", content: "The RemoBryg — Earn in Dollars. Get Paid Every Week." },
-      { property: "og:description", content: "$500–$900 weekly. Compliant remote work for Nigerians." },
+      { property: "og:description", content: "Earn $40–$120/week in dollars. Compliant remote work for Nigerians." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -61,21 +60,21 @@ function Index() {
     defaultValues: { email: "" },
   });
 
-  function onSubmit(values: NewsletterForm) {
-    // eslint-disable-next-line no-console
-    console.log("Newsletter signup:", values.email);
+  const [subscribed, setSubscribed] = useState(false);
+
+  function onSubmit(_values: NewsletterForm) {
+    setSubscribed(true);
     form.reset();
-    form.setValue("email", "Thanks! You're on the list.");
   }
 
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { id: "challenge", label: "Challenge" },
-    { id: "solution", label: "Solution" },
-    { id: "how-it-works", label: "How It Works" },
+    { id: "challenge", label: "Why It Works" },
+    { id: "solution", label: "The Fix" },
+    { id: "how-it-works", label: "How to Start" },
     { id: "assessment", label: "Find My Path" },
-    { id: "diaspora", label: "Diaspora" },
+    { id: "diaspora", label: "For Diaspora" },
   ];
 
   return (
@@ -86,7 +85,7 @@ function Index() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center gap-2 transition-opacity duration-200 hover:opacity-80">
             <span className="font-display text-xl font-extrabold tracking-tight text-foreground">
-              Remo<span className="text-teal-600">Bryg</span>
+              Remo<span className="text-accent">Bryg</span>
             </span>
           </Link>
           {/* Desktop nav */}
@@ -129,7 +128,7 @@ function Index() {
                 <a key={id} href={`#${id}`}
                   onClick={() => setMenuOpen(false)}
                   style={{ animationDelay: `${i * 60}ms` }}
-                  className="animate-fade-in-up border-b border-border/30 py-4 font-display text-2xl font-extrabold tracking-tight text-foreground transition-colors duration-150 hover:text-teal-600 last:border-0">
+                  className="animate-fade-in-up border-b border-border/30 py-4 font-display text-2xl font-extrabold tracking-tight text-foreground transition-colors duration-150 hover:text-accent last:border-0">
                   {label}
                 </a>
               ))}
@@ -156,7 +155,7 @@ function Index() {
                 <span className="italic text-primary">Every Week.</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                $500–$900 weekly, wired to your account. We handle the compliance, payment setup, and everything Nigeria's remote work scene gets wrong.
+                Start at $2/hr, work 20–60 hrs a week, get paid in dollars every Friday. We handle the compliance, payment setup, and everything Nigeria's remote work scene gets wrong.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4 sm:justify-start">
                 <Button asChild size="lg" className="w-1/2 px-6 sm:w-auto bg-primary text-primary-foreground transition-all duration-200 hover:scale-105 hover:bg-primary/90 hover:shadow-lg">
@@ -172,8 +171,16 @@ function Index() {
               {/* Typographic stat callout */}
               <div className="mt-12 flex flex-wrap justify-center gap-8 border-t border-border/50 pt-8 sm:justify-start">
                 <div>
-                  <div className="font-display text-4xl font-extrabold text-accent">$500–$900</div>
-                  <div className="mt-1 text-sm text-muted-foreground">earned weekly</div>
+                  <div className="font-display text-4xl font-extrabold text-accent">$40–$120</div>
+                  <div className="mt-1 text-sm text-muted-foreground">earned weekly (20–60 hrs)</div>
+                </div>
+                <div>
+                  <div className="font-display text-4xl font-extrabold text-primary">$2/hr</div>
+                  <div className="mt-1 text-sm text-muted-foreground">your take-home rate</div>
+                </div>
+                <div>
+                  <div className="font-display text-4xl font-extrabold text-foreground">Weekly</div>
+                  <div className="mt-1 text-sm text-muted-foreground">payments, every Friday</div>
                 </div>
               </div>
             </div>
@@ -197,7 +204,7 @@ function Index() {
             <span key={i} className="mx-8 flex items-center gap-8 text-sm font-medium text-primary-foreground/80">
               <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-accent" /> Compliance-first</span>
               <span className="text-accent">✦</span>
-              <span className="flex items-center gap-2"><DollarSign className="h-4 w-4 text-accent" /> Paid weekly in USD</span>
+              <span className="flex items-center gap-2"><DollarSign className="h-4 w-4 text-accent" /> $40–$120/week in USD</span>
               <span className="text-accent">✦</span>
               <span className="flex items-center gap-2"><Clock className="h-4 w-4 text-accent" /> No graveyard shifts</span>
               <span className="text-accent">✦</span>
@@ -230,7 +237,7 @@ function Index() {
             </div>
             <h3 className="font-display mt-6 text-2xl font-bold text-foreground">The Opportunity Is Hidden in Plain Sight</h3>
             <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-              Thousands of remote roles paying $500–$900 weekly are actively hiring Nigerians right now — on platforms most people have never heard of. The gap isn't ability or work ethic. It's awareness. Nobody told you this was possible, and nobody showed you how to get started.
+              Thousands of remote AI task roles are actively hiring Nigerians right now — on platforms most people have never heard of. At $2/hr for 20–60 hours a week, members consistently take home $40–$120 every Friday. The gap isn't ability or work ethic. It's awareness. Nobody told you this was possible, and nobody showed you how to get started.
             </p>
             <blockquote className="mt-6 border-l-4 border-accent/40 pl-4 text-sm italic text-muted-foreground">
               &ldquo;I had no idea I could be earning in dollars from my laptop every week. I just didn't know where to look.&rdquo;
@@ -288,7 +295,7 @@ function Index() {
             {/* Big typographic callout */}
             <div className="space-y-4">
               {[
-                { value: "$500–$900", label: "average weekly earnings", color: "text-accent" },
+                { value: "$40–$120/wk", label: "real weekly earnings at 20–60 hrs", color: "text-accent" },
                 { value: "2 Tiers", label: "income engine → career accelerator", color: "text-primary" },
                 { value: "1 Mission", label: "sustainable success for Nigerians", color: "text-foreground" },
               ].map(({ value, label, color }) => (
@@ -307,31 +314,28 @@ function Index() {
         <div className="mb-12 text-center animate-fade-in-up">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">The Path</p>
           <h2 className="font-display mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-            <span className="text-foreground">Your </span>
-            <span className="text-accent">Two-Tier Path</span>
-            <span className="text-foreground"> to Prosperity</span>
+            <span className="text-foreground">How </span>
+            <span className="text-accent">RemoBryg</span>
+            <span className="text-foreground"> Works</span>
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">Immediate income first. Career wealth second.</p>
+          <p className="mt-4 text-lg text-muted-foreground">Get your first dollar. Then scale it.</p>
         </div>
         <div className="relative mx-auto max-w-3xl">
-          {/* Connecting line */}
-          <div className="absolute left-8 top-0 h-full w-0.5 bg-border lg:left-1/2 lg:-translate-x-0.5" aria-hidden="true" />
+          <div className="absolute left-8 top-0 h-full w-0.5 bg-border" aria-hidden="true" />
           {[
             {
               step: "01",
-              title: "The Income Engine",
-              sub: "Immediate Cash Flow & Skill Building",
-              body: "Start on platforms like Outlier, Mercor, and OneForma. We give you compliant account setup, payment processing strategies, and platform-safe practices that keep you earning, not banned.",
-              goal: "Generate $500–$900/week while building foundational digital skills.",
-              side: "left",
+              title: "Get Your First Dollar",
+              sub: "Account Setup & First Payment",
+              body: "Join platforms like Outlier, Mercor, and OneForma. We walk you through compliant account creation, payment routing through a diaspora contact or direct setup, and how to land your first task and get paid.",
+              goal: "Start earning $2/hr. 20 hrs/week = $40. 60+ hrs/week = $120+.",
             },
             {
               step: "02",
-              title: "The Career Accelerator",
-              sub: "Long-Term Wealth & Career Mastery",
-              body: "Graduate from task-based work to specialized roles — fullstack dev, social media management, UGC creation, YouTube automation. Curated resources, mentorship, and direct connections to high-paying clients.",
-              goal: "Transition to sustainable, high-impact careers worth $3k–$6k/month.",
-              side: "right",
+              title: "Scale Your Hours & Income",
+              sub: "More Platforms. More Hours. More Pay.",
+              body: "Once your first payment lands, you expand — more platforms, more available hours, a larger diaspora network. The more hours you put in, the more your weekly income grows. Simple.",
+              goal: "Members working 40–60 hrs/week consistently earn $80–$120/week.",
             },
           ].map(({ step, title, sub, body, goal }) => (
             <div key={step} className="relative mb-12 flex gap-8 last:mb-0">
@@ -361,7 +365,7 @@ function Index() {
               <span className="text-foreground">Find Out </span>
               <span className="text-accent">How Much You Can Earn</span>
             </h2>
-            <p className="mt-3 text-lg text-muted-foreground">3 questions. 30 seconds. Your personalised starting point.</p>
+            <p className="mt-3 text-lg text-muted-foreground">A few quick questions. Your personalised starting point.</p>
           </div>
           <Assessment />
         </div>
@@ -379,18 +383,19 @@ function Index() {
           <div className="order-1 lg:order-2 animate-fade-in-up">
             <p className="text-sm font-semibold uppercase tracking-widest text-accent">Diaspora</p>
             <h2 className="font-display mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-              <span className="text-accent">Diaspora Trust</span>
-              <span className="text-foreground"> Framework:</span>{" "}
-              <span className="text-primary">Professionalizing Support</span>
+              <span className="text-foreground">Your Relative in the </span>
+              <span className="text-accent">US or Canada</span>
+              <span className="text-foreground"> Earns Too —</span>{" "}
+              <span className="text-primary">Every Week.</span>
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Turn informal family support into a compliant, mutually beneficial payment partnership.
+              They receive a fixed, agreed percentage of every weekly payout. No vague arrangements — just a clear, compliant payment partnership.
             </p>
             <div className="mt-8 space-y-0 divide-y divide-border/50">
               {[
-                { icon: <FileText className="h-5 w-5 text-primary" />, title: "Legal Guidance", desc: "Best practices for receiving payments via international accounts through a diaspora sponsor." },
-                { icon: <Users className="h-5 w-5 text-accent" />, title: "Payment Agency Model", desc: "Structure arrangements with relatives abroad as legal payment facilitators — tax compliant, zero risk." },
-                { icon: <ShieldCheck className="h-5 w-5 text-primary" />, title: "Transparency & Security", desc: "Templates for clear agreements, secure fund transfers, and transparent record-keeping." },
+                { icon: <DollarSign className="h-5 w-5 text-primary" />, title: "Negotiated Weekly Percentage", desc: "Your US or Canadian relative earns a fixed, agreed percentage of every weekly payout — no vague arrangements, no surprises. The rate is set upfront and paid automatically." },
+                { icon: <Users className="h-5 w-5 text-accent" />, title: "Payment Agency Model", desc: "US and Canadian relatives act as compliant payment facilitators. They receive the platform payout and transfer your agreed share — tax-aware, zero risk to both sides." },
+                { icon: <ShieldCheck className="h-5 w-5 text-primary" />, title: "Transparent Agreement Templates", desc: "We provide ready-to-sign agreement templates that define the percentage split, transfer schedule, and record-keeping — so every party is protected." },
               ].map(({ icon, title, desc }) => (
                 <div key={title} className="flex gap-4 py-5 transition-transform duration-200 hover:translate-x-1">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-secondary">{icon}</div>
@@ -417,7 +422,7 @@ function Index() {
                 Today
               </h2>
               <p className="mt-4 text-lg text-primary-foreground/80">
-                Ready to earn in dollars, get paid weekly, and stop settling for local rates? Join thousands of Nigerians already on the path.
+                Ready to earn in dollars, get paid weekly, and stop settling for local rates? Join Nigerians already earning on the path.
               </p>
               <div className="mt-8 space-y-3">
                 <SocialLink icon={<FaWhatsapp className="h-5 w-5 text-[#25D366]" />} label="WhatsApp" href="https://chat.whatsapp.com/LE2LDORzK23DdPGLA4zLwV?s=cl&p=a&ilr=4" description="Join WhatsApp community" />
@@ -431,6 +436,17 @@ function Index() {
               <p className="mt-2 text-primary-foreground/80">
                 Exclusive tips, job alerts, and payment guides — straight to your inbox.
               </p>
+              {subscribed ? (
+                <div className="mt-6 flex items-center gap-3 rounded-xl border border-accent/40 bg-accent/10 p-4">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/20">
+                    <CheckCircle2 className="h-5 w-5 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-display font-semibold text-primary-foreground">You're on the list.</p>
+                    <p className="text-sm text-primary-foreground/70">First edition lands in your inbox soon.</p>
+                  </div>
+                </div>
+              ) : (
               <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6 space-y-4" aria-label="Newsletter signup">
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-primary-foreground">Email address</Label>
@@ -442,12 +458,12 @@ function Index() {
                   )}
                 </div>
                 <Button type="submit"
-                  className="w-full px-6 sm:w-1/2 bg-accent font-semibold text-accent-foreground transition-all duration-200 hover:scale-[1.02] hover:bg-accent/90 hover:shadow-lg"
-                  disabled={form.formState.isSubmitSuccessful && form.getValues("email").includes("Thanks")}>
+                  className="w-full px-6 sm:w-1/2 bg-accent font-semibold text-accent-foreground transition-all duration-200 hover:scale-[1.02] hover:bg-accent/90 hover:shadow-lg">
                   <Mail className="mr-2 h-4 w-4" />
                   Subscribe
                 </Button>
               </form>
+              )}
             </div>
           </div>
         </div>
@@ -456,20 +472,38 @@ function Index() {
       {/* ── FOOTER ── */}
       <footer className="border-t border-border/50 bg-background">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col items-center justify-between gap-8 sm:flex-row sm:items-start">
+            <div className="flex flex-col items-center gap-3 sm:items-start">
               <span className="font-display text-xl font-extrabold tracking-tight text-foreground">
-                Remo<span className="text-teal-600">Bryg</span>
+                Remo<span className="text-accent">Bryg</span>
               </span>
+              <div className="flex items-center gap-3">
+                <a href="https://chat.whatsapp.com/LE2LDORzK23DdPGLA4zLwV?s=cl&p=a&ilr=4" target="_blank" rel="noopener noreferrer"
+                  aria-label="Join WhatsApp community"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition-colors hover:border-[#25D366]/60 hover:text-[#25D366]">
+                  <FaWhatsapp className="h-4 w-4" />
+                </a>
+                <a href="https://t.me/remobryg" target="_blank" rel="noopener noreferrer"
+                  aria-label="Join Telegram channel"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition-colors hover:border-[#26A5E4]/60 hover:text-[#26A5E4]">
+                  <FaTelegram className="h-4 w-4" />
+                </a>
+              </div>
             </div>
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} The RemoBryg. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm text-muted-foreground">
-              {["challenge", "assessment", "diaspora", "join"].map((id) => (
-                <a key={id} href={`#${id}`} className="transition-colors duration-200 hover:text-foreground capitalize">{id}</a>
+            <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground sm:justify-end">
+              {[
+                { id: "challenge", label: "Why It Works" },
+                { id: "how-it-works", label: "How to Start" },
+                { id: "assessment", label: "Find My Path" },
+                { id: "diaspora", label: "For Diaspora" },
+                { id: "join", label: "Join" },
+              ].map(({ id, label }) => (
+                <a key={id} href={`#${id}`} className="transition-colors duration-200 hover:text-foreground">{label}</a>
               ))}
-            </div>
+            </nav>
           </div>
         </div>
       </footer>
@@ -520,7 +554,7 @@ interface Result {
 const QUESTIONS: Question[] = [
   {
     id: "diaspora",
-    text: "Do you have a relative or contact in the UK, US, Canada, or Europe?",
+    text: "Do you have a relative or contact in the US, Canada, or Europe?",
     sub: "Someone with an active bank account or payment profile in those countries.",
     options: [
       { value: "yes", label: "Yes, I do", icon: <CheckCircle2 className="h-5 w-5" /> },
@@ -570,21 +604,21 @@ const EARNING_MAP: Record<"20-40" | "40-60" | "60+", { tasker: string; partner: 
     tasker: "$40–$80/week",
     calc: "20–40 hrs × $2/hr = $40–$80",
     partner: "$4–$8/week",
-    partnerCalc: "10% of $40–$80 tasker earnings = $4–$8",
+    partnerCalc: "~10% of $40–$80 tasker earnings — paid every week",
   },
   "40-60": {
     hours: "40–60 hrs",
     tasker: "$80–$120/week",
     calc: "40–60 hrs × $2/hr = $80–$120",
     partner: "$8–$12/week",
-    partnerCalc: "10% of $80–$120 tasker earnings = $8–$12",
+    partnerCalc: "~10% of $80–$120 tasker earnings — paid every week",
   },
   "60+": {
     hours: "60+ hrs",
     tasker: "$120+/week",
     calc: "60+ hrs × $2/hr = $120+",
     partner: "$12+/week",
-    partnerCalc: "10% of $120+ tasker earnings = $12+",
+    partnerCalc: "~10% of $120+ tasker earnings — paid every week",
   },
 };
 
@@ -598,7 +632,7 @@ function getResult(answers: Record<string, Answer>): Result {
 
   // Only show not-ready if device question was explicitly answered "no"
   if (deviceAnswer === "no") {
-    // If they have diaspora, they still earn 10% passively
+    // If they have diaspora, they still earn a negotiated percentage passively
     if (hasDiaspora) {
       return {
         key: "account-partner",
@@ -607,11 +641,11 @@ function getResult(answers: Record<string, Answer>): Result {
         badgeColor: "bg-primary/15 text-primary",
         earning: map.partner,
         earningLabel: map.partnerCalc,
-        desc: "You don't have a device yet, but your diaspora contact still earns you 10% weekly. RemoBryg assigns a verified tasker to your relative's account — you earn passively while you get set up.",
+        desc: "You don't have a device yet, but your US or Canadian relative still earns their negotiated percentage every week. RemoBryg assigns a verified tasker to their account — you both benefit passively while you get set up.",
         bullets: [
           "Tasker earns $2/hr on your relative's account",
-          `${map.partnerCalc}`,
-          "No laptop needed — your cut is passive",
+          map.partnerCalc,
+          "No laptop needed — your relative's cut is passive and automatic",
           "When you get a device, you can switch to full tasking and earn more",
         ],
         ctaLabel: "Join the Community on WhatsApp",
@@ -666,10 +700,10 @@ function getResult(answers: Record<string, Answer>): Result {
       badgeColor: "bg-primary/15 text-primary",
       earning: map.partner,
       earningLabel: map.partnerCalc,
-      desc: "You supply the diaspora account. RemoBryg assigns a verified tasker. The tasker earns $5/hr and you receive 10% of their total weekly earnings — passively, with full transparency.",
+      desc: "You supply the US or Canadian account. RemoBryg assigns a verified tasker. Your relative receives their negotiated percentage of every weekly payout — passively, with full transparency.",
       bullets: [
-        `Tasker earns $5/hr on your account`,
-        `${map.partnerCalc}`,
+        "Tasker earns on your relative's account",
+        map.partnerCalc,
         "Weekly earnings report sent — full transparency, no guesswork",
         "Your relative's account is used under a clear, compliant agreement",
       ],
@@ -741,15 +775,15 @@ function Assessment() {
 
   if (result) {
     return (
-      <div className={`animate-fade-in-up rounded-2xl border-2 p-8 ${result.accentClass}`}>
+      <div className="animate-fade-in-up rounded-2xl bg-primary p-8 shadow-xl">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <span className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${result.badgeColor}`}>
+            <span className="inline-block rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent">
               {result.badge}
             </span>
-            <h3 className="font-display mt-3 text-3xl font-extrabold text-foreground">{result.title}</h3>
+            <h3 className="font-display mt-3 text-3xl font-extrabold text-primary-foreground">{result.title}</h3>
           </div>
-          <button onClick={reset} className="mt-1 flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-card hover:text-foreground">
+          <button onClick={reset} className="mt-1 flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-primary-foreground/60 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground">
             <RotateCcw className="h-3.5 w-3.5" /> Retake
           </button>
         </div>
@@ -757,20 +791,20 @@ function Assessment() {
         <div className="mt-6 flex items-end gap-2">
           <span className="font-display text-5xl font-extrabold text-accent">{result.earning}</span>
         </div>
-        <p className="mt-1 text-sm text-muted-foreground">{result.earningLabel}</p>
+        <p className="mt-1 text-sm text-primary-foreground/60">{result.earningLabel}</p>
 
-        <p className="mt-5 text-base leading-relaxed text-muted-foreground">{result.desc}</p>
+        <p className="mt-5 text-base leading-relaxed text-primary-foreground/80">{result.desc}</p>
 
         <ul className="mt-5 space-y-2">
           {result.bullets.map((b) => (
-            <li key={b} className="flex items-start gap-2 text-sm text-foreground">
+            <li key={b} className="flex items-start gap-2 text-sm text-primary-foreground/90">
               <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               {b}
             </li>
           ))}
         </ul>
 
-        <Button asChild size="lg" className="mt-8 w-full bg-primary text-primary-foreground transition-all duration-200 hover:scale-[1.02] hover:bg-primary/90 hover:shadow-lg sm:w-auto">
+        <Button asChild size="lg" className="mt-8 w-full bg-accent font-semibold text-accent-foreground transition-all duration-200 hover:scale-[1.02] hover:bg-accent/90 hover:shadow-lg sm:w-auto">
           <a href={result.ctaHref} target="_blank" rel="noopener noreferrer">
             {result.ctaLabel}
             <ArrowRight className="ml-2 h-4 w-4" />
@@ -788,7 +822,7 @@ function Assessment() {
           <span>Question {step + 1} of {activeQuestions.length}</span>
           <span>{Math.round((step / activeQuestions.length) * 100)}% done</span>
         </div>
-        <div className="h-1.5 w-full overflow-hidden rounded-full bg-border">
+        <div className="h-1.5 w-full overflow-hidden rounded-full bg-border/50">
           <div
             className="h-full rounded-full bg-accent transition-all duration-500"
             style={{ width: `${(step / activeQuestions.length) * 100}%` }}
@@ -797,15 +831,15 @@ function Assessment() {
       </div>
 
       {currentQ && (
-        <div className="rounded-2xl border border-border/60 bg-card p-8 shadow-sm">
+        <div className="rounded-2xl bg-primary p-8 shadow-xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">
             Question {step + 1}
           </p>
-          <h3 className="font-display mt-2 text-xl font-bold text-foreground sm:text-2xl">
+          <h3 className="font-display mt-2 text-xl font-bold text-primary-foreground sm:text-2xl">
             {currentQ.text}
           </h3>
           {currentQ.sub && (
-            <p className="mt-2 text-sm text-muted-foreground">{currentQ.sub}</p>
+            <p className="mt-2 text-sm text-primary-foreground/60">{currentQ.sub}</p>
           )}
 
           <div className="mt-6 flex flex-col gap-3">
@@ -813,13 +847,13 @@ function Assessment() {
               <button
                 key={value}
                 onClick={() => handleAnswer(value)}
-                className="group flex w-full items-center gap-4 rounded-xl border border-border/60 bg-background p-4 text-left transition-all duration-200 hover:border-accent/60 hover:bg-accent/5 hover:shadow-md"
+                className="group flex w-full items-center gap-4 rounded-xl border border-primary-foreground/20 bg-primary-foreground/10 p-4 text-left transition-all duration-200 hover:border-accent/60 hover:bg-primary-foreground/20 hover:shadow-md"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-colors group-hover:bg-accent/10 group-hover:text-accent">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-foreground/15 text-primary-foreground/70 transition-colors group-hover:bg-accent/20 group-hover:text-accent">
                   {icon}
                 </div>
-                <span className="font-display font-semibold text-foreground">{label}</span>
-                <ChevronRight className="ml-auto h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-accent" />
+                <span className="font-display font-semibold text-primary-foreground">{label}</span>
+                <ChevronRight className="ml-auto h-4 w-4 text-primary-foreground/40 transition-transform group-hover:translate-x-0.5 group-hover:text-accent" />
               </button>
             ))}
           </div>
@@ -827,7 +861,7 @@ function Assessment() {
           {step > 0 && (
             <button
               onClick={() => setStep(step - 1)}
-              className="mt-5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="mt-5 text-sm text-primary-foreground/50 transition-colors hover:text-primary-foreground"
             >
               ← Back
             </button>
