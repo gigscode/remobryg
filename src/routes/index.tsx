@@ -143,10 +143,9 @@ function Index() {
         <div className="relative mx-auto max-w-7xl px-4 pt-20 sm:px-6 sm:pt-28 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="flex flex-col items-center text-center sm:items-start sm:text-left animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
-                <span className="flex h-2 w-2 animate-pulse rounded-full bg-success" aria-hidden="true" />
-                Built for Nigerians, backed by compliance
-              </div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                $30,000+ paid out · 30 active earners
+              </p>
               <h1 className="font-display mt-6 text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
                 <span className="text-foreground">Earn in </span>
                 <span className="text-accent">Dollars.</span>
@@ -179,8 +178,8 @@ function Index() {
                   <div className="mt-1 text-sm text-muted-foreground">your take-home rate</div>
                 </div>
                 <div>
-                  <div className="font-display text-4xl font-extrabold text-foreground">Weekly</div>
-                  <div className="mt-1 text-sm text-muted-foreground">payments, every week</div>
+                  <div className="font-display text-4xl font-extrabold text-foreground">50+</div>
+                  <div className="mt-1 text-sm text-muted-foreground">members, 3 platforms</div>
                 </div>
               </div>
             </div>
@@ -430,7 +429,7 @@ function Index() {
                 Today
               </h2>
               <p className="mt-4 text-lg text-primary-foreground/80">
-                The moment you join you get access to our platform setup guide, payment routing walkthrough, and a community of members already earning — ready to answer your first questions.
+                The moment you join you get access to our platform setup guide, payment routing walkthrough, and a community of 50+ members — 30 of them already earning — ready to answer your first questions.
               </p>
               <div className="mt-8 space-y-3">
                 <SocialLink icon={<FaWhatsapp className="h-5 w-5 text-[#25D366]" />} label="WhatsApp" href="https://chat.whatsapp.com/LE2LDORzK23DdPGLA4zLwV?s=cl&p=a&ilr=4" description="Join WhatsApp community" />
