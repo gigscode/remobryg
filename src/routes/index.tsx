@@ -394,12 +394,14 @@ function Index() {
             <h2 className="font-display mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
               <span className="text-foreground">Your Relative in the </span>
               <span className="text-accent">US or Canada</span>
-              <span className="text-foreground"> Earns Too —</span>{" "}
+              <span className="text-foreground"> Earns </span>
+              <span className="text-accent">$50</span>
+              <span className="text-foreground"> —</span>{" "}
               <span className="text-primary">Every Week.</span>
             </h2>
             <div className="mt-8 space-y-0 divide-y divide-border/50">
               {[
-                { icon: <DollarSign className="h-5 w-5 text-primary" />, title: "Negotiated Weekly Percentage", desc: "The rate is agreed before any tasking begins — typically around 10% of weekly earnings. It's written into the agreement and transfers automatically every payout cycle." },
+                { icon: <DollarSign className="h-5 w-5 text-primary" />, title: "Flat $50 Every Week", desc: "Your relative earns a flat $50/week just for supplying the account. The rate is agreed upfront, written into the agreement, and paid automatically — no tasking on their end." },
                 { icon: <Users className="h-5 w-5 text-accent" />, title: "Payment Agency Model", desc: "US and Canadian relatives act as compliant payment facilitators. They receive the platform payout and transfer your agreed share — tax-aware, zero risk to both sides." },
                 { icon: <ShieldCheck className="h-5 w-5 text-primary" />, title: "Transparent Agreement Templates", desc: "We provide ready-to-sign agreement templates that define the percentage split, transfer schedule, and record-keeping — so every party is protected." },
               ].map(({ icon, title, desc }) => (
@@ -609,22 +611,22 @@ const EARNING_MAP: Record<"20-40" | "40-60" | "60+", { tasker: string; partner: 
     hours: "20–40 hrs",
     tasker: "$40–$80/week",
     calc: "20–40 hrs × $2/hr = $40–$80",
-    partner: "$4–$8/week",
-    partnerCalc: "~10% of $40–$80 tasker earnings — paid every week",
+    partner: "$50/week",
+    partnerCalc: "Flat $50/week for supplying the account — no tasking required",
   },
   "40-60": {
     hours: "40–60 hrs",
     tasker: "$80–$120/week",
     calc: "40–60 hrs × $2/hr = $80–$120",
-    partner: "$8–$12/week",
-    partnerCalc: "~10% of $80–$120 tasker earnings — paid every week",
+    partner: "$50/week",
+    partnerCalc: "Flat $50/week for supplying the account — no tasking required",
   },
   "60+": {
     hours: "60+ hrs",
     tasker: "$120+/week",
     calc: "60+ hrs × $2/hr = $120+",
-    partner: "$12+/week",
-    partnerCalc: "~10% of $120+ tasker earnings — paid every week",
+    partner: "$50/week",
+    partnerCalc: "Flat $50/week for supplying the account — no tasking required",
   },
 };
 
@@ -647,11 +649,11 @@ function getResult(answers: Record<string, Answer>): Result {
         badgeColor: "bg-primary/15 text-primary",
         earning: map.partner,
         earningLabel: map.partnerCalc,
-        desc: "You don't have a device yet, but your US or Canadian relative still earns their negotiated percentage every week. RemoBryg assigns a verified tasker to their account — you both benefit passively while you get set up.",
+        desc: "You don't have a device yet, but your US or Canadian relative still earns $50 every week just for supplying the account. RemoBryg assigns a verified tasker — you both benefit while you get set up.",
         bullets: [
-          "Tasker earns $2/hr on your relative's account",
+          "Tasker works on your relative's account",
           map.partnerCalc,
-          "No laptop needed — your relative's cut is passive and automatic",
+          "No effort needed — their $50 is passive and automatic",
           "When you get a device, you can switch to full tasking and earn more",
         ],
         ctaLabel: "Join the Community on WhatsApp",
@@ -706,12 +708,12 @@ function getResult(answers: Record<string, Answer>): Result {
       badgeColor: "bg-primary/15 text-primary",
       earning: map.partner,
       earningLabel: map.partnerCalc,
-      desc: "You supply the US or Canadian account. RemoBryg assigns a verified tasker. Your relative receives their negotiated percentage of every weekly payout — passively, with full transparency.",
+      desc: "You supply the US or Canadian account. RemoBryg assigns a verified tasker. Your relative earns a flat $50 every week — no tasking, no effort, just passive income.",
       bullets: [
-        "Tasker earns on your relative's account",
         map.partnerCalc,
+        "No effort required — fully passive income for them",
         "Weekly earnings report sent — full transparency, no guesswork",
-        "Your relative's account is used under a clear, compliant agreement",
+        "Account used under a clear, written agreement",
       ],
       ctaLabel: "Join the Community on WhatsApp",
       ctaHref: WHATSAPP,
