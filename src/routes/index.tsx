@@ -42,9 +42,9 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "The RemoBryg — Earn in Dollars. Get Paid Every Week." },
-      { name: "description", content: "Earn $40–$120/week in dollars. Compliant remote work for Nigerians — no transfer fee traps, no graveyard shifts." },
-      { property: "og:title", content: "The RemoBryg — Earn in Dollars. Get Paid Every Week." },
+      { title: "The RemoBryg: Earn in Dollars. Get Paid Every Week." },
+      { name: "description", content: "Earn $40–$120/week in dollars. Compliant remote work for Nigerians, no transfer fee traps, no graveyard shifts." },
+      { property: "og:title", content: "The RemoBryg: Earn in Dollars. Get Paid Every Week." },
       { property: "og:description", content: "Earn $40–$120/week in dollars. Compliant remote work for Nigerians." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -154,7 +154,7 @@ function Index() {
                 <span className="italic text-primary">Every Week.</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                AI task platforms are paying out every week — but only if you know how to access them without the usual hassles. We handle the setup, the payment routing, and the red tape so you can focus on the work.
+                AI task platforms are paying out every week, but only if you know how to access them without the usual hassles. We handle the setup, the payment routing, and the red tape so you can focus on the work.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4 sm:justify-start">
                 <Button asChild size="lg" className="w-1/2 px-6 sm:w-auto bg-primary text-primary-foreground transition-all duration-200 hover:scale-105 hover:bg-primary/90 hover:shadow-lg">
@@ -236,7 +236,7 @@ function Index() {
             </div>
             <h3 className="font-display mt-6 text-2xl font-bold text-foreground">The Opportunity Is Hidden in Plain Sight</h3>
             <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-              Thousands of remote AI task roles are actively hiring Nigerians right now — on platforms most people have never heard of. At $2/hr for 20–60 hours a week, members consistently take home $40–$120 weekly. The gap isn't ability or work ethic. It's awareness. Nobody told you this was possible, and nobody showed you how to get started.
+              Thousands of remote AI task roles are actively hiring Nigerians right now, on platforms most people have never heard of. At $2/hr for 20–60 hours a week, members consistently take home $40–$120 weekly. The gap isn't ability or work ethic. It's awareness. Nobody told you this was possible, and nobody showed you how to get started.
             </p>
             <blockquote className="mt-6 border-l-4 border-accent/40 pl-4 text-sm italic text-muted-foreground">
               &ldquo;I had no idea I could be earning in dollars from my laptop every week. I just didn't know where to look.&rdquo;
@@ -279,7 +279,7 @@ function Index() {
                 {[
                   { icon: <Globe className="h-5 w-5 text-primary" />, title: "We Show You What's Possible", desc: "Most people don't act because they don't believe the opportunity is real. We show you exactly who is earning, on which platforms, and how much." },
                   { icon: <TrendingUp className="h-5 w-5 text-primary" />, title: "We Give You a Clear Starting Point", desc: "No more guessing. We tell you which platforms to join, how to set up correctly, and how to land your first payment." },
-                  { icon: <Users className="h-5 w-5 text-accent" />, title: "We Support You Along the Way", desc: "A community of people on the same journey — sharing wins, answering questions, and holding each other accountable." },
+                  { icon: <Users className="h-5 w-5 text-accent" />, title: "We Support You Along the Way", desc: "A community of people on the same journey, sharing wins, answering questions, and holding each other accountable." },
                 ].map(({ icon, title, desc }) => (
                   <div key={title} className="flex gap-4 transition-transform duration-200 hover:translate-x-1">
                     <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-secondary">{icon}</div>
@@ -342,7 +342,7 @@ function Index() {
               step: "02",
               title: "Scale Your Hours & Income",
               sub: "More Platforms. More Hours. More Pay.",
-              body: "Once your first payment lands, you expand — more platforms, more available hours, a larger diaspora network. The more hours you put in, the more your weekly income grows. Simple.",
+              body: "Once your first payment lands, you expand. More platforms, more available hours, a larger diaspora network. The more hours you put in, the more your weekly income grows. Simple.",
               goal: "Members working 40–60 hrs/week consistently earn $80–$120/week.",
             },
           ].map(({ step, title, sub, body, goal }) => (
@@ -393,16 +393,14 @@ function Index() {
             <h2 className="font-display mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
               <span className="text-foreground">Your Relative in the </span>
               <span className="text-accent">US or Canada</span>
-              <span className="text-foreground"> Earns </span>
-              <span className="text-accent">$50</span>
-              <span className="text-foreground"> —</span>{" "}
-              <span className="text-primary">Every Week.</span>
+              <span className="text-foreground"> Every </span>
+              <span className="text-accent">$50.</span>
             </h2>
             <div className="mt-8 space-y-0 divide-y divide-border/50">
               {[
-                { icon: <DollarSign className="h-5 w-5 text-primary" />, title: "Flat $50 Every Week", desc: "Your relative earns a flat $50/week just for supplying the account. The rate is agreed upfront, written into the agreement, and paid automatically — no tasking on their end." },
-                { icon: <Users className="h-5 w-5 text-accent" />, title: "Payment Agency Model", desc: "US and Canadian relatives act as compliant payment facilitators. They receive the platform payout and transfer your agreed share — tax-aware, zero risk to both sides." },
-                { icon: <ShieldCheck className="h-5 w-5 text-primary" />, title: "Transparent Agreement Templates", desc: "We provide ready-to-sign agreement templates that define the percentage split, transfer schedule, and record-keeping — so every party is protected." },
+                { icon: <DollarSign className="h-5 w-5 text-primary" />, title: "Flat $50 Every Week", desc: "Your relative earns a flat $50/week just for supplying the account. The rate is agreed upfront, written into the agreement, and paid automatically with no tasking on their end." },
+                { icon: <Users className="h-5 w-5 text-accent" />, title: "Payment Agency Model", desc: "US and Canadian relatives act as compliant payment facilitators. They receive the platform payout and transfer your agreed share, tax-aware, zero risk to both sides." },
+                { icon: <ShieldCheck className="h-5 w-5 text-primary" />, title: "Transparent Agreement Templates", desc: "We provide ready-to-sign agreement templates that define the percentage split, transfer schedule, and record-keeping, so every party is protected." },
               ].map(({ icon, title, desc }) => (
                 <div key={title} className="flex gap-4 py-5 transition-transform duration-200 hover:translate-x-1">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-secondary">{icon}</div>
@@ -429,7 +427,7 @@ function Index() {
                 Today
               </h2>
               <p className="mt-4 text-lg text-primary-foreground/80">
-                The moment you join you get access to our platform setup guide, payment routing walkthrough, and a community of 50+ members — 30 of them already earning — ready to answer your first questions.
+                The moment you join you get access to our platform setup guide, payment routing walkthrough, and a community of 50+ members, 30 of them already earning, ready to answer your first questions.
               </p>
               <div className="mt-8 space-y-3">
                 <SocialLink icon={<FaWhatsapp className="h-5 w-5 text-[#25D366]" />} label="WhatsApp" href="https://chat.whatsapp.com/LE2LDORzK23DdPGLA4zLwV?s=cl&p=a&ilr=4" description="Join WhatsApp community" />
@@ -441,7 +439,7 @@ function Index() {
                 Sign up for our <span className="text-accent">Newsletter</span>
               </h3>
               <p className="mt-2 text-primary-foreground/80">
-                Exclusive tips, job alerts, and payment guides — straight to your inbox.
+                Exclusive tips, job alerts, and payment guides, straight to your inbox.
               </p>
               {subscribed ? (
                 <div className="mt-6 flex items-center gap-3 rounded-xl border border-accent/40 bg-accent/10 p-4">
@@ -580,7 +578,7 @@ const QUESTIONS: Question[] = [
   {
     id: "hours",
     text: "How many hours per week can you dedicate?",
-    sub: "Be honest — this determines your realistic earning range.",
+    sub: "Be honest, this determines your realistic earning range.",
     options: [
       { value: "20-40", label: "20–40 hrs / week", icon: <Clock className="h-5 w-5" /> },
       { value: "40-60", label: "40–60 hrs / week", icon: <Clock className="h-5 w-5" /> },
@@ -611,21 +609,21 @@ const EARNING_MAP: Record<"20-40" | "40-60" | "60+", { tasker: string; partner: 
     tasker: "$40–$80/week",
     calc: "20–40 hrs × $2/hr = $40–$80",
     partner: "$50/week",
-    partnerCalc: "Flat $50/week for supplying the account — no tasking required",
+    partnerCalc: "Flat $50/week for supplying the account, no tasking required",
   },
   "40-60": {
     hours: "40–60 hrs",
     tasker: "$80–$120/week",
     calc: "40–60 hrs × $2/hr = $80–$120",
     partner: "$50/week",
-    partnerCalc: "Flat $50/week for supplying the account — no tasking required",
+    partnerCalc: "Flat $50/week for supplying the account, no tasking required",
   },
   "60+": {
     hours: "60+ hrs",
     tasker: "$120+/week",
     calc: "60+ hrs × $2/hr = $120+",
     partner: "$50/week",
-    partnerCalc: "Flat $50/week for supplying the account — no tasking required",
+    partnerCalc: "Flat $50/week for supplying the account, no tasking required",
   },
 };
 
@@ -648,11 +646,11 @@ function getResult(answers: Record<string, Answer>): Result {
         badgeColor: "bg-primary/15 text-primary",
         earning: map.partner,
         earningLabel: map.partnerCalc,
-        desc: "You don't have a device yet, but your US or Canadian relative still earns $50 every week just for supplying the account. RemoBryg assigns a verified tasker — you both benefit while you get set up.",
+        desc: "You don't have a device yet, but your US or Canadian relative still earns $50 every week just for supplying the account. RemoBryg assigns a verified tasker, and you both benefit while you get set up.",
         bullets: [
           "Tasker works on your relative's account",
           map.partnerCalc,
-          "No effort needed — their $50 is passive and automatic",
+          "No effort needed, their $50 is passive and automatic",
           "When you get a device, you can switch to full tasking and earn more",
         ],
         ctaLabel: "Join the Community on WhatsApp",
@@ -665,11 +663,11 @@ function getResult(answers: Record<string, Answer>): Result {
       title: "You're Almost There",
       badge: "Getting Ready",
       badgeColor: "bg-warning/15 text-warning",
-      earning: "—",
-      earningLabel: "not yet, but soon",
+      earning: "Not yet",
+      earningLabel: "but you're closer than you think",
       desc: "A basic laptop and stable internet are the only things standing between you and your first dollar payment. Many members started from this exact point.",
       bullets: [
-        "Join the community — members often share leads on affordable devices",
+        "Join the community, members often share leads on affordable devices",
         "Use the time to learn the platforms and prepare your setup",
         "When you're ready, you can start earning within days",
       ],
@@ -686,11 +684,11 @@ function getResult(answers: Record<string, Answer>): Result {
       badgeColor: "bg-accent/15 text-accent-foreground",
       earning: map.tasker,
       earningLabel: map.calc,
-      desc: "You have the best setup — a diaspora account for compliant payments and the availability to task yourself. Platform rate is $15/hr. You receive $2/hr.",
+      desc: "You have the best setup, a diaspora account for compliant payments and the availability to task yourself. Platform rate is $15/hr. You receive $2/hr.",
       bullets: [
         "Your take: $2/hr",
         `${map.calc}`,
-        "Payment processed through your relative's account — no hassle, no risk",
+        "Payment processed through your relative's account, no hassle, no risk",
         "We handle account setup, onboarding, and your first payment walkthrough",
       ],
       ctaLabel: "Join the Community on WhatsApp",
@@ -707,11 +705,11 @@ function getResult(answers: Record<string, Answer>): Result {
       badgeColor: "bg-primary/15 text-primary",
       earning: map.partner,
       earningLabel: map.partnerCalc,
-      desc: "You supply the US or Canadian account. RemoBryg assigns a verified tasker. Your relative earns a flat $50 every week — no tasking, no effort, just passive income.",
+      desc: "You supply the US or Canadian account. RemoBryg assigns a verified tasker. Your relative earns a flat $50 every week, no tasking, no effort, just passive income.",
       bullets: [
         map.partnerCalc,
-        "No effort required — fully passive income for them",
-        "Weekly earnings report sent — full transparency, no guesswork",
+        "No effort required, fully passive income for them",
+        "Weekly earnings report sent, full transparency, no guesswork",
         "Account used under a clear, written agreement",
       ],
       ctaLabel: "Join the Community on WhatsApp",
